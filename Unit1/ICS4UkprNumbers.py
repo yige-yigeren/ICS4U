@@ -1,6 +1,7 @@
 # caculate prime numbers from 1 to 50
+numrange = 20
 pnums = []
-for i in range(1,50):
+for i in range(2,numrange):
     prime = True
     for j in range(2,i):
         if i % j == 0:
@@ -8,19 +9,22 @@ for i in range(1,50):
             break
     if prime:
         pnums.append(i)
-
 # caculate KPR numbers from 1 to 50
 num = 1
-while num <= 50:
-    temp = 0 # number of KPR numbers
+while num <= numrange:
+    temp = 1 # number of KPR numbers
     npnum = 0 # number of prime number
-    while pnums[npnum] < num:
+    while pnums[npnum] <= num:
         ptemp = pnums[npnum] # prime number power
-        while ptemp < num:
+        lptemp = ptemp
+        while ptemp <= num:
             lptemp = ptemp # last prime number power
-            ptemp * pnums[npnum] # prime number power
-        temp * lptemp
+            ptemp = ptemp * pnums[npnum] # prime number power
+        temp = temp * lptemp
+        if npnum < len(pnums) - 1:
+            npnum += 1
+        else:
+            break
     print (num, " KPR number is ", temp)
     num += 1
-
-        
+exit(0)

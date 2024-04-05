@@ -6,9 +6,10 @@ for i in range(75):
 print(nums)
 
 print("Please choose a number to count")
-num = float(input())
+num = int(input())
 count = 0
 for i in range(75):
     if nums[i] == num:
         count += 1
 print("The number",num,"appears",count,"times in the list")
+exit(0)
