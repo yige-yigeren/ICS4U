@@ -2,7 +2,7 @@ numrange = 20
 pnums = []
 for i in range(2,numrange):
     prime = True
-    for j in range(2,i):
+    for j in range(2,i//2+1):
         if i % j == 0:
             prime = False
             break
