@@ -1,24 +1,15 @@
-#Finding KPR Numbers (aka Fractorials)
-def KPR(n):
-    f = n
+#Open the file for reading
+file = open("data.txt","r")
 
-    while True:
+#Make an empty list to store the data
+x = []
 
-        #Count down loop from n so it breaks faster if not found
-        for i in range(n, 0, -1):
+#Read the 10 lines of the file and append to the list
+for i in range(0,10):
+	x.append(file.readline())
 
-            #Break if not a factor
-            if f % i == 0:
-                found = True
-            else:
-                found = False
-                break
-        if found:
-            return f
-        else:
-            f = f + n # Only need to check multiples of n to make faster
+#Done reading so close the file
+file.close()
 
-
-# Main Program
-for i in range(1, 21):
-    print(i,": ", KPR(i))
+#Print the results of the read to the screen
+print(x)
