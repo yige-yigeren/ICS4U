@@ -1,5 +1,3 @@
-import math
-
 num=1
 while num < 500:
     sum = 0
