@@ -1,7 +1,3 @@
-
-# Date: 2024/04/15
-# Course: ICS4U
-
 while True:
     maxline = int(input('Please inpute the number of lines you want to print:'))# ask the user for the number of lines
     if maxline > 0: # check if the input is valid

@@ -1,7 +1,3 @@
-
-# Date: 2024/04/15
-# Course: ICS4U
-
 # import the necessary libraries
 import matplotlib.pyplot as plt # draw
 import numpy as np # math

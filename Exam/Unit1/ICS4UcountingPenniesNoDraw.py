@@ -1,7 +1,3 @@
-
-# Date: 2024/04/15
-# Course: ICS4U
-
 # the function pointoncircle is to determine if a point is on the circle
 def pointoncircle(x, y, radius):
     if x**2 + y**2 <= radius**2:

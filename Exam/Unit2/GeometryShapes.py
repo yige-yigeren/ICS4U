@@ -12,6 +12,9 @@ class GeomentryShape:
             self.h = h
             self.w = w
         elif self.type == 'triangle':
+            if a + b <= c or a + c <= b or b + c <= a:
+                print('Invalid input: illegal triangle sides')
+                exit(1)
             self.a = a
             self.b = b
             self.c = c
@@ -42,7 +45,7 @@ class GeomentryShape:
             print(f'Triangle: side1 = {self.a}, side2 = {self.b}, side3 = {self.c}, area = {self.Area()}, perimeter = {self.Perimeter()}')
 
 # test
-circle = GeomentryShape('circle', 3)
+circle = GeomentryShape('circle', r=3)
 circle.Display()
 rectangle = GeomentryShape('rectangle', h=22, w=3)
 rectangle.Display()
