@@ -1,3 +1,4 @@
+# import necessary libraries
 import random
 class Fraction:
     # define the constructor
@@ -13,7 +14,7 @@ class Fraction:
     
     # reduce the fraction
     def reduce(self):
-        for i in range(min(abs(self.numerator), abs(self.denominator)), 1, -1):
+        for i in range(min(abs(self.numerator), abs(self.denominator)), 1, -1): # find the greatest common divisor
             if self.numerator % i == 0 and self.denominator % i == 0:
                 self.numerator = self.numerator // i
                 self.denominator = self.denominator // i
@@ -33,41 +34,42 @@ class Fraction:
     # Add, subtract, multiply, divide four operations
     def add(self, other):
         new = Fraction()
-        new.numerator = self.numerator * other.denominator + self.denominator * other.numerator
-        new.denominator = self.denominator * other.denominator
+        new.numerator = self.numerator * other.denominator + self.denominator * other.numerator # cross multiply
+        new.denominator = self.denominator * other.denominator # get the common denominator
         return new
     
     def subtract(self, other):
         new = Fraction()
-        new.numerator = self.numerator * other.denominator - self.denominator * other.numerator
-        new.denominator = self.denominator * other.denominator
+        new.numerator = self.numerator * other.denominator - self.denominator * other.numerator # cross multiply
+        new.denominator = self.denominator * other.denominator # get the common denominator
         return new
     
     def multiply(self, other):
         new = Fraction()
-        new.numerator = self.numerator * other.numerator
-        new.denominator = self.denominator * other.denominator
+        new.numerator = self.numerator * other.numerator # multiply the numerator
+        new.denominator = self.denominator * other.denominator # multiply the denominator
         return new
     
     def divide(self, other):
         new = Fraction()
-        new.numerator = self.numerator * other.denominator
-        new.denominator = self.denominator * other.numerator
+        new.numerator = self.numerator * other.denominator # cross multiply
+        new.denominator = self.denominator * other.numerator # cross multiply
         return new
     
     # generate a simple fraction
     def generate():
         while True:
-            n1 = random.randint(1,15)
+            # generate the numerator and denominator
+            n1 = random.randint(1,15) 
             n2 = random.randint(2,15)
             f = Fraction(n1, n2).reduce()
-            if f.numerator%f.denominator != 0 or f.denominator != 1:
+            if f.numerator%f.denominator != 0 or f.denominator != 1: # check if the fraction is a simple fraction
                 break
         return f
 
 # test Part
 print('Please type the answer as n/d in most simplly.\nIf you want stop please type \'quit\'')
-questions = 0
+questions = 0 # prepare the counter
 correct = 0
 while True: # loop of the quiz
     while True: # generate questions loop
