@@ -1,7 +1,10 @@
 def f(x): # calculate the value of the polynomial at x
     return sum([coefs[i] * x ** i for i in range(len(coefs))])
 
-def df(x): # calculate the derivative of the polynomial at x
+def df(x): # calculate the value of the polynomial at x
+    return (sum([coefs[i+0.0001] * x ** i for i in range(len(coefs))]) - sum([coefs[i] * x ** i for i in range(len(coefs))]))/0.0001
+
+def adf(x): # calculate the derivative of the polynomial at x
     return sum([i * coefs[i] * x ** (i - 1) for i in range(1, len(coefs))])
 
 max_power = int(input("Enter the maximum power of the polynomial: "))
