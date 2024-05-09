@@ -1,4 +1,5 @@
 import random
+import os
 import tkinter as tk
 from tkinter import PhotoImage
 
@@ -77,25 +78,20 @@ def player2_click():
     root.after(1000, rules)
 
 def prepare():
-    # remove all cards
     player1.cards = []
     player2.cards = []
     global desk1side, desk2side, tempcards
     desk1side = [100, 0]
     desk2side = [100, 0]
     tempcards = []
-    '''
-    rawcards = [i for i in range(52)]
-    for i in range(2,54):
+    rawcards = [i for i in range(2, 54)]
+    for i in range(52):
         card = random.choice(rawcards)
         rawcards.remove(card)
         if i % 2 == 0:
             player1.getcard(card)
         else:
             player2.getcard(card)
-            '''
-    player1.cards = [2, 2, 2, 2, 2, 2, 2, 2, 9]
-    player2.cards = [14, 11, 12, 13, 15]
     global playstatus, warstatus, Notice, roundstatus
     playstatus = 0
     warstatus = 0
@@ -142,6 +138,7 @@ def rules():
     if roundstatus == 1:
         button1.config(state='disabled')
         button2.config(state='disabled')
+        update_info()
         root.after(5000, prepare)
         return
     update_info()
@@ -176,17 +173,16 @@ def update_info():
     if desk1side[1] != 0:
         label_desk1_1.config(image=card_images[0])
         label_desk1_1_value.config(text=str(desk1side[1]))
-
     if desk2side[1] != 0:
         label_desk2_1.config(image=card_images[0])
         label_desk2_1_value.config(text=str(desk2side[1]))
 
     global playstatus, roundstatus
-    if playstatus == 0:
+    if playstatus == 0 and roundstatus == 0:
         button1.config(state='normal')
         button2.config(state='normal')
 
-
+# Global var
 Notice = ''
 playstatus = 0 # 0: no card played, 1: player1 played, 2: player2 played, 3: compare
 warstatus = 0 # 0: no war, 1: war
@@ -196,8 +192,7 @@ player2 = Player("Player2")
 # first card on the desk, second cards not displayed
 desk1side = [100, 0]
 desk2side = [100, 0]
-tempcards = []
-
+tempcards = [] # All card not show
 
 # gui tk
 root = tk.Tk()
@@ -205,9 +200,8 @@ root.title("War Card Game")
 root.geometry("1000x700")
 
 # card files path
-
-files = ''
-
+files = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'cards\\')
+print(files)
 card_images = [PhotoImage(file=files + "back.png"), PhotoImage(file=files + "empty.png")] + [PhotoImage(file=f"{files}{i}.png") for i in range(1,53)]
 
 frame0 = tk.LabelFrame(root, height=200, text="Desk")
