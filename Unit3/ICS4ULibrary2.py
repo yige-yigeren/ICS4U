@@ -139,7 +139,7 @@ BorrowerGUIData = ['', '', '', '']
 # Main Menu
 root = tk.Tk()
 root.title("Library Manage System")
-root.geometry("900x750")  # Set the window size to 1000x800
+root.geometry("900x750") 
 
 frame = ttk.Frame(root, padding="10")
 frame.grid(row=0, column=0, sticky=(tk.W, tk.E, tk.N, tk.S))
