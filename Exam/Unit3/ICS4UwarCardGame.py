@@ -11,7 +11,7 @@ class Player:
 
     def playcard(self):
         if len(self.cards) == 0:
-            return 0
+            return 1
         card = self.cards[0]
         self.cards.pop(0)
         return card
@@ -102,7 +102,7 @@ def prepare():
 def rules():
     global playstatus, warstatus, tempcards, Notice, roundstatus, desk1side, desk2side
     if playstatus == 3:
-        # A max, 2 min
+        # Compare card A max, 2 min
         mark1 = (desk1side[0]+10) % 13
         mark2 = (desk2side[0]+10) % 13
         if mark1 == mark2:
@@ -143,8 +143,7 @@ def rules():
         return
     update_info()
 
-
-def update_info():
+def update_info(): # Update all info on the screen
     button1.config(image=card_images[0] if len(player1.cards) > 0 else card_images[1])
     button2.config(image=card_images[0] if len(player2.cards) > 0 else card_images[1])
     label0.config(text=Notice)

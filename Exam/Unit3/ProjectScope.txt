@@ -1,0 +1,52 @@
+# Overview
+
+## Game Objective: Two players draw cards with the higher card winning both; the game continues until one player has all cards.
+
+## Setup:
+
+Deck: Standard 52-card deck, shuffled at the beginning.
+
+Distribution: Cards are evenly distributed to each player.
+
+The player with the higher card wins the round, and in the event of a tie, a "war" is declared, leading to further rounds of play.
+
+# Gameplay
+
+## Basic Play:
+
+Players simultaneously reveal the top card of their deck.
+
+The player with the higher card wins both cards, placing them at the bottom of their deck.
+
+## War Scenario:
+
+If the cards are of equal rank, a "war" occurs.
+
+Each player places three cards face down and one card face up.
+
+The higher face-up card wins all cards (if equal again, repeat the war scenario).
+
+## Game Continuation: The game repeats until one player has all cards.
+Comprehensiveness
+
+The document includes all necessary aspects of the game, ensuring it addresses gameplay mechanics, card management, and resolution of ties effectively.
+
+# Organization and Presentation
+
+The document is organized into clear sections outlining objectives, gameplay, winning conditions, and additional key aspects of the game, making it easy for any developer or player to understand.
+
+# Feasibility
+
+The requirements set forth are feasible within typical game development constraints. The game logic is straightforward, requiring basic control flow and state management which are well within the capabilities of standard programming environments.
+
+# Constraints:
+
+Four days to finish this project.
+
+Day 1 - Logical design, choice implement methods and classes
+
+Day 2 - Coding main part, and finish all logical function
+
+Day 3 - check the logical and deal Error. (first Deliverables) test in the special status.
+
+Day 4 - review Requirements and logicals.

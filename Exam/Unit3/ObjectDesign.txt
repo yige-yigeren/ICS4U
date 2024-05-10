@@ -1,0 +1,92 @@
+# Requirements:
+
+## Import library: 
+
+tkinter - displayed the GUI
+
+os - get the py file path to find images and send to tkinter
+
+random - random give player cards
+
+## Resrouses
+
+The pictures of card images. (52 standard cards, back and empty)
+
+# Object Design
+
+## Player Class: This class manages player data, such as the cards 
+currently held. It includes methods for card retrieval (getcard) and card play (playcard).
+
+## functions
+
+player1/2_click() - deal with user click and play card
+
+rules() - use war card game rules to caculate results
+
+prepare() - restore the value to prepare new games
+
+update_info() - Sync results to GUI
+
+## Global Variables:
+
+Notice: Displays textual information about game status.
+
+PlayStatus: Indicates whose turn it is. # 0: no card played, 1: player1 played, 2: player2 played, 3: compare
+
+WarStatus: Shows whether the game is in a state of war.# 0: no war, 1: war
+
+Roundstatus: store the status of gaming # 0: in round, 1: game ends
+
+Desk1Side/Desk2Side: These variables store the cards currently shown by each player along with the non-displayed point cards.
+
+TempCards: Holds cards that have not yet had their values displayed.
+
+## GUI design
+
+The part of GUI is in update_info function(Handle GUI update) and at end of codes of GUI design. This will easy to change.
+
+Top and down of window is player1/2 part, they can see the cards Remaining and play card.
+
+Middle of window is desk, show cards on desk and Notices. Left side and right side is for different users.
+
+# Game Logic
+
+## The logical flow of the game is as follows:
+
+A player clicks a button to play a card of top card from their cards.
+
+The game applies the war game rules function to analyze the played cards. Compare the cards: higher card wins both, and they are placed at the bottom of the winner's deck. In case of a tie (same card rank), execute the war scenario: additional cards are played according to the rules, determining the winner of the batch.
+
+The game use displays function the results of the round.
+
+## End Game:
+
+The game ends when one player has all the cards or after a set number of rounds, declaring the player with the most cards as the winner.
+
+# Error Handling: 
+
+If the player had played card, disabled the button to avoid protential problem.
+
+Handle scenarios where a player runs out of cards during a war scenario.
+
+Deal with problem if no engough card to war. Validate card ranks and ensure that no invalid operations are performed on the card collections.
+
+Prevent players from playing if the game has already ended in 5s.
+
+Make sure in some special status, program can run as predict.
+
+Use python grammer checker and AI tools to handle protential error may happened.
+
+# Scalability: 
+
+## Game states use global value, and most of Logical use function, GUI design is clearly and independent. It is easy to add more things to show and add more function or change the rules.
+
+## May change way: 
+
+Introduce new variations of the game, such as different rules for wars or special cards with unique effects
+
+Extend the game to support more than two players, adjusting the distribution of cards and gameplay mechanics accordingly
+
+Implement network play to allow players to compete over the internet
+
+Incorporate a database to track player statistics and high scores.
